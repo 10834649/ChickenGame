@@ -23,8 +23,8 @@ public class ScorManager : MonoBehaviour {
 		text.text = " " + score;
 
 
-	public static void AddPoints(int pointsToAdd){
-				score += pointsToAdd;
+	public static void AddPoints(int points){
+				score += points;
 			}
 	public void Reset(){
 
