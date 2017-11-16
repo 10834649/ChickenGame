@@ -21,18 +21,19 @@ public class ScorManager : MonoBehaviour {
 			score = 0;
 
 		text.text = " " + score;
-
-
-	public static void AddPoints(int points){
+	}
+ public void AddPoints(int points){
 				score += points;
 			}
-	public void Reset(){
+	 void Reset()
+	 {
 
 			score = 0;
-		}
+	}
 
 
 
 
 	}
-}
+
+

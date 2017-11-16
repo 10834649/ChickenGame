@@ -18,7 +18,7 @@ public class ChickenAI : MonoBehaviour {
 
 			transform.LookAt(target);
 
-			transform.Translate(Vector0.back*moveSpeed*Time.deltatime);
+			transform.Translate(Vector3.back*moveSpeed*Time.deltatime);
 		}
 	}
 
@@ -29,7 +29,7 @@ public class ChickenAI : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.name == "Player"){
 			// Add points to score
-			ScorManager.AddPoints(points);
+		GetComponent(ScorManager.AddPoints(points));
 			// send chicken to chicken pen
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.position;

@@ -7,6 +7,7 @@ public class WolfAI : MonoBehaviour {
 	public float moveSpeed;
 	public Transform target;
 	public int damage;
+	public GameObject pcHealth;
 
 	// wolf advance trigger
 	void OnTriggerStay(Collider other){
@@ -17,22 +18,19 @@ public class WolfAI : MonoBehaviour {
 
 			transform.LookAt(target);
 
-			transform.Translate(Vector0.back*moveSpeed*Time.deltatime);
+			transform.Translate(Vector3.back*moveSpeed*Time.deltatime);
 		}
 	}
 	void OnCollisionEnter(Collision other){
 
-		if(other.gameObject.name == "player"){
-			PlayerHealth.TakeDamage(damage);
-		}
-
-
-		print("Attack!");
+		if(other.gameObject.name == "Player"){
 		var hit = other.gameObject;
 		var health = hit.GetComponent<PlayerHealth>();
 
-		if(health != null){
-			health.TakeDamage(damage);
+		if(pcHealth != null){
+			print("Attack!");
+			pcHealth.TakeDamage(damage);
+			}
 		}
 	}
 }
