@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine.UI;
+using System.Collections;
 using UnityEngine;
 
 public class WolfAI : MonoBehaviour {
@@ -18,7 +19,7 @@ public class WolfAI : MonoBehaviour {
 
 			transform.LookAt(target);
 
-			transform.Translate(Vector3.back*moveSpeed*Time.deltatime);
+			transform.Translate(Vector3.back*moveSpeed*Time.deltaTime);
 		}
 	}
 	void OnCollisionEnter(Collision other){
@@ -29,7 +30,7 @@ public class WolfAI : MonoBehaviour {
 
 		if(pcHealth != null){
 			print("Attack!");
-			pcHealth.TakeDamage(damage);
+			pcHealth.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
 			}
 		}
 	}
