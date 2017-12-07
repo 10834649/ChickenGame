@@ -8,7 +8,7 @@ public class ChickenAI : MonoBehaviour {
 	public float moveSpeed;
 	public Transform target;
 	public Transform chickenPen;
-
+	public GameObject ScorManager;
 	public int points = 10;
 	// chicken runaway trigger
 	void OnTriggerStay(Collider other){
@@ -29,7 +29,7 @@ public class ChickenAI : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.name == "Player"){
 			// Add points to score
-		scorManager.AddPoints(points);
+		 ScoreManager.AddPoints(points);
 			// send chicken to chicken pen
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.rotation;

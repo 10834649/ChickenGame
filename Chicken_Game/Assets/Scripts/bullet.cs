@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+public int damage = 1;
+public int time = 5;
+void Start(){
+	StartCoroutine(DestroyBullet());
+}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	
+void OnCollisionEnter(Collision other){
+
+	var hit = other.gameObject;
+	var health = hit.GetComponent<Wolfhealth>();
+
+	if(health != null){
+		health.TakeDamage(damage);
 	}
+}
+
+	IEnumerator DestroyBullet(){
+		yield return new WaitForSeconds(time);
+		Destroy(gameObject);
+	}
+
 }
